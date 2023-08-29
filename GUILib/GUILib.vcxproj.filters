@@ -18,7 +18,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GUILib\GUILib.cpp">
+    <ClCompile Include="SGUILib\SGUI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PrintHelloWorldApp\HelloWorldApp.cpp">
@@ -26,13 +26,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GUILib\graphics.h">
+    <ClInclude Include="SGUILib\graphics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GUILib\winbgim.h">
+    <ClInclude Include="SGUILib\winbgim.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GUILib\GUILib.h">
+    <ClInclude Include="SGUILib\SGUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PrintHelloWorldApp\HelloWorldApp.h">
@@ -40,7 +40,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="GUILib\graphics.lib" />
-    <Library Include="GUILib\libbgi.a" />
+    <Library Include="SGUILib\graphics.lib" />
+    <Library Include="SGUILib\libbgi.a" />
   </ItemGroup>
 </Project>

@@ -1,14 +1,10 @@
 
 #include <iostream>
-#include "GUILib/GUILib.h"
+#include "SGUILib/SGUI.h"
 
 int main()
 {
     std::cout << "GUI Lib Dev!\n";
-
-    SGUI::Core applicationCore;
-
-    applicationCore.RunCore();
     
     return 0;
 }

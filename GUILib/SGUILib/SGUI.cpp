@@ -1,4 +1,4 @@
-#include "GUILib.h"
+#include "SGUI.h"
 
 SGUI::Window::Window()
 {
@@ -18,14 +18,6 @@ void SGUI::Window::Main()
         {
             setactivepage(1 - getactivepage());
 
-            while (this->_itemQueue.empty() == false)
-            {
-                SGUI::Item& currentItem = this->_itemQueue.front();
-                if (currentItem.Status() == true)
-                {
-                    currentItem.Run();
-                }
-            }
 
             setvisualpage(getactivepage());
             clearmouseclick(VK_LBUTTON);

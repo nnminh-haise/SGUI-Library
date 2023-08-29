@@ -129,17 +129,17 @@
   <ItemGroup>
     <ClCompile Include="PrintHelloWorldApp\HelloWorldApp.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="GUILib\GUILib.cpp" />
+    <ClCompile Include="SGUILib\SGUI.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GUILib\graphics.h" />
-    <ClInclude Include="GUILib\GUILib.h" />
-    <ClInclude Include="GUILib\winbgim.h" />
+    <ClInclude Include="SGUILib\graphics.h" />
+    <ClInclude Include="SGUILib\SGUI.h" />
+    <ClInclude Include="SGUILib\winbgim.h" />
     <ClInclude Include="PrintHelloWorldApp\HelloWorldApp.h" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="GUILib\graphics.lib" />
-    <Library Include="GUILib\libbgi.a" />
+    <Library Include="SGUILib\graphics.lib" />
+    <Library Include="SGUILib\libbgi.a" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

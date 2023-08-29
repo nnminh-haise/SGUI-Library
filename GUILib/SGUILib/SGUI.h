@@ -44,8 +44,6 @@ namespace SGUI {
 		int _id = -1;
 
 		bool _closeBtn = false;
-
-		std::queue<SGUI::Item> _itemQueue;
 	};
 
 	class Core
