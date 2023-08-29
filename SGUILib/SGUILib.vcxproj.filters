@@ -24,6 +24,9 @@
     <ClCompile Include="PrintHelloWorldApp\HelloWorldApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SGUILib\SGUe.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SGUILib\graphics.h">
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PrintHelloWorldApp\HelloWorldApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SGUILib\SGUe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

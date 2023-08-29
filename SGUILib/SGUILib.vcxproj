@@ -129,9 +129,11 @@
   <ItemGroup>
     <ClCompile Include="PrintHelloWorldApp\HelloWorldApp.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SGUILib\SGUe.cpp" />
     <ClCompile Include="SGUILib\SGUI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SGUILib\SGUe.h" />
     <ClInclude Include="SGUILib\graphics.h" />
     <ClInclude Include="SGUILib\SGUI.h" />
     <ClInclude Include="SGUILib\winbgim.h" />

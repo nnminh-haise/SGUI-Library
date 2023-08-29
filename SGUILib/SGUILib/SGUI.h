@@ -4,18 +4,13 @@
 #define __GUI_LIB__
 
 #include "graphics.h"
+#include "SGUe.h"
 #include <stack>
 #include <queue>
 #include <string>
+#pragma comment(lib, "graphics.lib")
 
 namespace SGUI {
-	namespace SGUe
-	{
-		void Text(std::string message);
-
-		void TextAt(int x, int y, std::string message);
-	};
-
 	class Item
 	{
 	public:
@@ -25,7 +20,7 @@ namespace SGUI {
 
 		bool Status();
 
-		virtual void Run() = 0;
+		void Run();
 
 	public:
 		bool _status = false;
@@ -40,10 +35,14 @@ namespace SGUI {
 
 		void Main();
 
+		void PushItem(SGUI::Item& item);
+
 	private:
 		int _id = -1;
 
 		bool _closeBtn = false;
+
+		std::queue<SGUI::Item> _itemQueue{};
 	};
 
 	class Core
