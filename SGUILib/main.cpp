@@ -3,22 +3,22 @@
 #include "SGUILib/SGUI.h"
 
 
-//class MessageBx : public SGUI::Item
-//{
-//public:
-//    void Run() override {
-//        SGUe::TextAt(100, 100, "hello");
-//    }
-//};
+class MessageBx : public SGUI::Item
+{
+public:
+    void Run() override {
+        SGUe::TextAt(100, 100, "hello msbx");
+    }
+};
 
 int main()
 {
     std::cout << "GUI Lib Dev!\n";
  
-    //SGUI::Item msbx;
+    MessageBx msbx;
 
     SGUI::Window wind;
-    //wind.PushItem(msbx);
+    wind.PushItem(std::make_shared<MessageBx>(msbx));
 
     SGUI::Core appCore;
     appCore.PushWindow(wind);

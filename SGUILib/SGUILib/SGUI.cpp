@@ -34,7 +34,7 @@ void SGUI::Window::Main()
     }
 }
 
-void SGUI::Window::PushItem(SGUI::Item& item)
+void SGUI::Window::PushItem(std::shared_ptr<SGUI::Item> item)
 {
     this->_itemQueue.push(item);
 }
@@ -68,7 +68,7 @@ bool SGUI::Item::Status()
     return this->_status;
 }
 
-void SGUI::Item::Run()
-{
-    outtextxy(100, 100, (char*)"hi");
-}
+//void SGUI::Item::Run()
+//{
+//
+//}

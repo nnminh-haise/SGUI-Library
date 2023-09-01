@@ -20,7 +20,7 @@ namespace SGUI {
 
 		bool Status();
 
-		void Run();
+		virtual void Run() = 0;
 
 	public:
 		bool _status = false;
@@ -35,14 +35,14 @@ namespace SGUI {
 
 		void Main();
 
-		void PushItem(SGUI::Item& item);
+		void PushItem(std::shared_ptr<SGUI::Item> item);
 
 	private:
 		int _id = -1;
 
 		bool _closeBtn = false;
 
-		std::queue<SGUI::Item> _itemQueue{};
+		std::queue<std::shared_ptr<SGUI::Item>> _itemQueue{};
 	};
 
 	class Core
