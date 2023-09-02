@@ -1,10 +1,11 @@
 #pragma once
 
-#ifndef __GUI_LIB__
-#define __GUI_LIB__
+#ifndef __SGUI_LIB__
+#define __SGUI_LIB__
 
 #include "graphics.h"
 #include "SGUe.h"
+#include "SGUm.h"
 #include <stack>
 #include <queue>
 #include <string>
@@ -26,36 +27,32 @@ namespace SGUI {
 		bool _status = false;
 	};
 
-	class Window
+	class Layer
 	{
 	public:
-		Window();
+		virtual void Main() = 0;
 
-		~Window();
+		bool Run();
 
-		void Main();
-
-		void PushItem(std::shared_ptr<SGUI::Item> item);
-
-	private:
+	public:
 		int _id = -1;
 
-		bool _closeBtn = false;
+		bool _hotExit = false;
 
-		std::queue<std::shared_ptr<SGUI::Item>> _itemQueue{};
+		std::queue<std::shared_ptr<SGUI::Item>> _items{};
 	};
 
 	class Core
 	{
 	public:
-		void PushWindow(SGUI::Window& newWindow);
+		void PushLayer(std::shared_ptr<SGUI::Layer> layer);
 
 		void RunCore();
 
 	private:
-		std::stack<Window> _windowStack;
+		std::stack<std::shared_ptr<SGUI::Layer>> _layers;
 	};
 }
 
-#endif // !GUI_LIB
+#endif // !__SGUI_LIB__
 

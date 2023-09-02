@@ -131,6 +131,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SGUILib\SGUe.cpp" />
     <ClCompile Include="SGUILib\SGUI.cpp" />
+    <ClCompile Include="SGUILib\SGUm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SGUILib\SGUe.h" />
@@ -138,6 +139,7 @@
     <ClInclude Include="SGUILib\SGUI.h" />
     <ClInclude Include="SGUILib\winbgim.h" />
     <ClInclude Include="PrintHelloWorldApp\HelloWorldApp.h" />
+    <ClInclude Include="SGUILib\SGUm.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="SGUILib\graphics.lib" />

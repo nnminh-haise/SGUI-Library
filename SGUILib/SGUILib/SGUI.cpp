@@ -2,54 +2,57 @@
 
 #include <iostream>
 
-SGUI::Window::Window()
+bool SGUI::Layer::Run()
 {
-    this->_id = initwindow(1000, 1000, "SGUI Default Window");
-}
-
-SGUI::Window::~Window()
-{
-    closegraph(this->_id);
-}
-
-void SGUI::Window::Main()
-{
-    while (this->_closeBtn == false)
+    try
     {
-        while (!kbhit() && this->_closeBtn == false)
+        std::shared_ptr<SGUI::Item> currentItem = nullptr;
+        while (this->_hotExit == false)
         {
-            setactivepage(1 - getactivepage());
+            while (this->_items.empty() == false && !kbhit() && this->_hotExit == false)
+            {
+                setactivepage(1 - getactivepage());
 
-            /*while (this->_itemQueue.empty() == false) {
-                SGUI::Item& currentItem = this->_itemQueue.front();
-                currentItem.Run();
-            }*/
+                currentItem = this->_items.front();
+                currentItem->Run();
 
-            SGUe::TextAt(100, 100, "hello");
+                setvisualpage(getactivepage());
+                clearmouseclick(VK_LBUTTON);
+                clearmouseclick(VK_RBUTTON);
+            }
 
-            setvisualpage(getactivepage());
-            clearmouseclick(VK_LBUTTON);
-            clearmouseclick(VK_RBUTTON);
-        }
+            char key = getch();
+            if (key == 27) {
+                this->_hotExit = true;
+                return false;
+            }
+        }        
     }
+    catch (const std::exception& ex)
+    {
+        std::cerr << ex.what() << "\n";
+        return false;
+    }
+
+    return true;
 }
 
-void SGUI::Window::PushItem(std::shared_ptr<SGUI::Item> item)
+void SGUI::Core::PushLayer(std::shared_ptr<SGUI::Layer> layer)
 {
-    this->_itemQueue.push(item);
-}
-
-void SGUI::Core::PushWindow(SGUI::Window& newWindow)
-{
-    this->_windowStack.push(newWindow);
+    this->_layers.push(layer);
 }
 
 void SGUI::Core::RunCore()
 {
-    while (!this->_windowStack.empty())
+    std::shared_ptr<SGUI::Layer> topLayer = nullptr;
+    while (!this->_layers.empty())
     {
-        SGUI::Window& topWindow = this->_windowStack.top();
-        topWindow.Main();
+        topLayer = this->_layers.top();
+        if (!topLayer->Run())
+        {
+            break;
+        }
+        this->_layers.pop();
     }
 }
 
@@ -67,8 +70,3 @@ bool SGUI::Item::Status()
 {
     return this->_status;
 }
-
-//void SGUI::Item::Run()
-//{
-//
-//}
